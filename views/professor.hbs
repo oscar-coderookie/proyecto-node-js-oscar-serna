@@ -1,0 +1,109 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/styles.css" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+            crossorigin="anonymous"
+        />
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"
+        ></script>
+        <title>Detalle CV: {{professor.name}}</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-xl">
+                <img class="header__img" src="/img/logo-inicio.png" alt="logo" />
+                <a class="navbar-brand" href="#">Instituto de Implantología: Base de Datos</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/professors">Equipo Docente</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/alumns">Área de Estudiantes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/courses">Cursos</a>
+                        </li>
+                        {{#if user}}{{else}}
+                            <li class="nav-item">
+                                <a class="nav-link" href="/auth/register">Registro</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/auth/login">Log-in</a>
+                            </li>
+                        {{/if}}
+
+                    </ul>
+                    <form class="header__links" action="/auth/logout" method="POST">
+                        <button class="header__links" type="submit">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        {{#if professor}}
+            <div class="container-xl">
+                <div class="row">
+                    <h1 class="main-title text-center">{{title}}</h1>
+                    <div class="col-sm-12 col-md-8 mx-auto">
+                        <div class="card p-3">
+                            <div class="card-header text-center">
+
+                                <h3>CV: {{professor.name}}</h3>
+                            </div>
+                            <div class="card-body text-center">
+                                <img class="professor__img" src="{{professor.image}}" alt="{{professor.name}}" />
+                            </div>
+                            
+                            <div class="card-body">
+
+                                <h3>ID:</h3>
+                                <p>{{professor._id}}</p>
+                                <h3>Título: </h3>
+                                <h4>{{professor.title}}</h4>
+                                <p class="professor__text"></p>
+                                <h3>Año de Titulación Oficial:</h3>
+                                <p class="professor__text">{{professor.graduationYear}}</p>
+
+                                <h3>Últimos Estudios realizados:</h3>
+                                <ul class="list-group list-group-flush">
+
+                                    <li class="professor__text list-group-item">{{professor.lastStudies.[0]}}</li>
+                                    <li class="professor__text list-group-item">{{professor.lastStudies.[1]}}</li>
+                                    <li class="professor__text list-group-item">{{professor.lastStudies.[2]}}</li>
+
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        {{else}}
+        {{/if}}
+
+    </body>
+</html>

@@ -1,0 +1,89 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/styles.css" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+            crossorigin="anonymous"
+        />
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"
+        ></script>
+        <title>Alumns</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-xl">
+                <img class="header__img" src="/img/logo-inicio.png" alt="logo" />
+                <a class="navbar-brand" href="#">Instituto de Implantología: Base de Datos</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/professors">Equipo Docente</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/courses">Cursos</a>
+                        </li>
+                        {{#if user}}{{else}}
+                            <li class="nav-item">
+                                <a class="nav-link" href="/auth/register">Registro</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/auth/login">Log-in</a>
+                            </li>
+                        {{/if}}
+
+                    </ul>
+                    <form class="header__links" action="/auth/logout" method="POST">
+                        <button class="header__links" type="submit">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container-xl">
+            <h1 class="students-title">Listado de Estudiantes Instituto Internacional de Implantología</h1>
+            <div class="row">
+                {{#each alumns}}
+                    <div class="col-sm-12 col-md-6 col-lg-3 py-4">
+                        <div class="card-header text-center">
+
+                            <h4>{{name}} {{lastName}}</h4>
+                        </div>
+                        <div class="card text-center">
+                            <img src="{{image}}" alt="" />
+
+                            <div class="card-body">
+                                <a class="btn btn-secondary" href="alumns/edit/{{_id}}">Editar</a>
+                                <a class="btn btn-secondary" href="alumns/{{_id}}">Detalle</a>
+                                <a class="btn btn-secondary" href="alumns/delete/{{_id}}">Eliminar</a>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+                <a class="btn btn-secondary" href="/alumns/createalumns">Nuevo alumno</a>
+            </div>
+        </div>
+
+    </body>
+</html>

@@ -1,0 +1,96 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/styles.css" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+            crossorigin="anonymous"
+        />
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"
+        ></script>
+        <title>Editar: {{alumn.name}}</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-xl">
+                <img class="header__img" src="/img/logo-inicio.png" alt="logo" />
+                <a class="navbar-brand" href="#">Instituto de Implantología: Base de Datos</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/professors">Equipo Docente</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/alumns">Área de Estudiantes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/courses">Cursos</a>
+                        </li>
+                        {{#if user}}{{else}}
+                            <li class="nav-item">
+                                <a class="nav-link" href="/auth/register">Registro</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/auth/login">Log-in</a>
+                            </li>
+                        {{/if}}
+
+                    </ul>
+                    <form class="header__links" action="/auth/logout" method="POST">
+                        <button class="header__links" type="submit">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <main class="container-xl">
+            <div class="row mx-auto">
+                {{#if alumn}}
+                    <div class="col-md-3 mx-auto">
+                        <div class="card mt-4" style="width: 400px;">
+                            <div class="card-header text-center">
+                                <h2 class="alumn__fields">{{alumn.name}} {{alumn.lastName}}</h2>
+                            </div>
+                            <img src="{{alumn.image}}" alt="" />
+                            <div class="card-body">
+
+                                <h4 class="alumn__titles">Email:</h4>
+                                <p class="alumn__fields">{{alumn.email}}</p>
+
+                                <h4 class="alumn__titles">DNI:</h4>
+                                <p class="alumn__fields">{{alumn.dni}}</p>
+
+                                <h4 class="alumn__titles">Número de contacto:</h4>
+                                <p class="alumn__fields">{{alumn.phone}}</p>
+
+                            </div>
+                        </div>
+                    </div>
+                {{/if}}
+            </div>
+
+        </main>
+
+    </body>
+</html>

@@ -1,0 +1,156 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="/css/styles.css" />
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+            crossorigin="anonymous"
+        />
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+            crossorigin="anonymous"
+        ></script>
+        <title>{{title}}</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-xl">
+                <img class="header__img" src="/img/logo-inicio.png" alt="logo" />
+                <a class="navbar-brand" href="#">Instituto de Implantología: Base de Datos</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/professors">Equipo Docente</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/alumns">Área de Estudiantes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/courses">Cursos</a>
+                        </li>
+                        {{#if user}}{{else}}
+                            <li class="nav-item">
+                                <a class="nav-link" href="/auth/register">Registro</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/auth/login">Log-in</a>
+                            </li>
+                        {{/if}}
+
+                    </ul>
+                    <form class="header__links" action="/auth/logout" method="POST">
+                        <button class="header__links" type="submit">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <main class="container-xl">
+            <div class="row">
+                <div class="col-6 mx-auto">
+                    <div class="card my-4">
+                        <div class="card-header">
+                            <h1 class="text-center">Área de registro nuevos Estudiantes:</h1>
+                        </div>
+                        <div class="card-body">
+                            <form action="/alumns/createalumns" method="POST" enctype="multipart/form-data">
+                                <div>
+                                    <p>El siguiente formulario está destinado a todos aquellos alumnos que hayan
+                                        comenzado cualquiera de nuestros cursos, para que se registren en nuestra base
+                                        de datos y poder interactuar con la información referente a los cursos y
+                                        docentes de nuestro instituto:</p>
+                                </div>
+                                <div class="create-fields">
+                                    <label class="form-label">Imagen:</label>
+                                    <input
+                                        class="form-control"
+                                        type="file"
+                                        name="image"
+                                        placeholder="Introduce una imagen de perfil.."
+                                        required
+                                    />
+                                </div>
+                                <div class="create-fields">
+                                    <label class="form-label">Nombre:</label>
+                                    <input
+                                        class="form-control"
+                                        type="text"
+                                        name="name"
+                                        placeholder="nombre y apellidos"
+                                        required
+                                    />
+                                </div>
+                                <div class="create-fields">
+                                    <label class="form-label">Apellidos:</label>
+                                    <input
+                                        class="form-control"
+                                        type="text"
+                                        name="lastName"
+                                        placeholder="escribe aquí la fecha (dd/mm/aa)"
+                                        required
+                                    />
+                                </div>
+                                <div class="create-fields">
+                                    <label class="form-label">Email:</label>
+                                    <input
+                                        class="form-control"
+                                        type="email"
+                                        name="email"
+                                        placeholder="Introduce un correo electrónico válido"
+                                        required
+                                    />
+                                </div>
+
+                                <div class="create-fields">
+                                    <label class="form-label">DNI:</label>
+                                    <input
+                                        class="form-control"
+                                        type="text"
+                                        name="dni"
+                                        placeholder="Escribe tu número de identificacion nacional(DNI)."
+                                        required
+                                    />
+                                </div>
+                                <div class="create-fields">
+                                    <label class="form-label">Móvil:</label>
+                                    <input
+                                        class="form-control"
+                                        type="text"
+                                        name="phone"
+                                        placeholder="Introduce tu número de móvil"
+                                        required
+                                    />
+                                </div>
+                                <div class="d-flex justify-content-center my-4">
+                                    <button class="btn btn-secondary" type="submit">Regístrate Ahora</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+    </body>
+</html>

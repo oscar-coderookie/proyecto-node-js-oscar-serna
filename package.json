@@ -1,0 +1,34 @@
+{
+  "name": "proyecto-node-api-doctores",
+  "version": "1.0.0",
+  "description": "Este proyecto contiene una base de datos de una clínica que imparte cursos de implantología dental",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "seedc": "node ./seeds/courses.seed.js",
+    "seedp": "node ./seeds/professor.seed.js",
+    "seeda": "node ./seeds/alumn.seed.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "bootstrap": "^5.0.1",
+    "cloudinary": "^1.26.0",
+    "connect-mongo": "^4.4.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "hbs": "^4.1.2",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.12.13",
+    "multer": "^1.4.2",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

@@ -1,0 +1,146 @@
+.header{
+    height: 10vh;
+    background:linear-gradient(to right, silver,rgb(226, 226, 226), silver);
+    box-shadow: 2px 2px 10px gray;
+   
+}
+.header-nav{
+   display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+.header__nav{
+    height: 100%;
+    
+} 
+.header__links{
+    color: rgb(255, 255, 255);
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0px 20px;
+    text-transform: uppercase;
+    font-size: 18px;
+    transition: all .3s ease;
+    border:none;
+    background: none;
+  
+}
+.logout-btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+.header__links:hover,
+.header__logout:hover{
+    color:rgb(255, 255, 255);
+    background: linear-gradient(90deg, silver,rgb(206, 206, 206), silver ) 
+
+}
+.header__img{
+    height: 80px;
+    margin-right: 20px;
+    filter: invert(1);
+}
+.main-title{
+    padding: 20px 0px;
+}
+.hero{
+    height: 90vh;
+    background: url('https://gacetadental.com/wp-content/uploads/2020/05/Clinica_dental.jpg');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    align-items: center;
+}
+.hero__text{
+    color: white;
+    max-width: 800px;
+    font-size: 42px;
+    text-shadow: 0px 0px 5px black;
+}
+.hero__logo{
+    width: 300px;
+
+}
+.alumn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.alumn-container{
+    margin: 40px 0px;
+    padding: 30px;
+    box-shadow: 0px 0px 8px rgb(44, 44, 44);
+}
+.alumn__fields{
+    font-size:18px;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+.alumn__titles{
+    padding: 0;
+    font-size: 20px;
+    text-align: center;
+    margin: 0;
+}
+.students-title{
+    padding: 20px 0px;
+    text-align: center;
+}
+.professor__text{
+    font-size: 18px;
+}
+.professor__img{
+    width: 300px;
+}
+
+.label-fields{
+    width: 60%;
+    padding: 10px 0px;
+    text-align: left;
+}
+.input-fields{
+    width: 60%;
+    padding: 2px 10px;
+}
+.form-register{
+    max-width: 500px;
+    padding: 20px;
+    box-shadow: 1px 1px 20px gray;
+}
+.register__title{
+    font-size: 24px;
+    text-align: center;
+}
+.courses-titles{
+    font-size: 18px;
+}
+.login__img{
+    width: 350px;
+    padding: 30px 0px;
+}
+.login__title{
+    font-size: 24px;
+    font-weight: 400;
+}
+
+@media(max-width:1000px){
+
+    .login__img{
+        width: 200px;
+    }
+    .hero{
+        flex-direction: column;
+    }
+    .hero__logo{
+        width: 200px;
+    }
+    .hero__text{
+        font-size: 28px;    
+    }
+}
